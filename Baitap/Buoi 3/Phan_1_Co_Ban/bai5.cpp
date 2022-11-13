@@ -10,20 +10,10 @@ int main(){
         cout << "Nhap n: ";
         cin >> n;
     }
-    int s=0;
     for(int i = 1; i <= n; i++){
-        if(n % i == 0 && i!=n)
-        {
-            s+=i;
-            cout << i << " + ";
+        if(n % i == 0){
+            cout << i << " ";
         }
-        else if (i==n)
-        {
-            s+=i;
-            cout << i << " = ";
-        }
-        
     }
-    cout << s;
     return 0;
 }
