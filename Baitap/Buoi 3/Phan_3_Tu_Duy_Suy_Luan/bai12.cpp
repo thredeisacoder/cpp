@@ -33,19 +33,19 @@ string Doc_don_vi(long n){
     switch(n)
     {
         case 2:
-            return "muoi";
+            return "muoi";  //Bug !!!
         case 3:
             return "tram";
         case 4:
             return "ngan";
         case 5:
-            return "muoi";
+            return "muoi";  //Bug !!!
         case 6:
             return "tram";
         case 7:
             return "trieu";
         case 8:
-            return "muoi";
+            return "muoi";  //Bug !!!
         case 9:
             return "tram";
         case 10:
