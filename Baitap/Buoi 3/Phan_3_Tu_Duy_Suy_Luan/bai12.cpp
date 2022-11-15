@@ -6,7 +6,7 @@ string So(long n){
     switch (n)
     {
         case 0:
-            return "khong";
+            return "khong"; //Bug !!!
         case 1:
             return "mot";
         case 2:
