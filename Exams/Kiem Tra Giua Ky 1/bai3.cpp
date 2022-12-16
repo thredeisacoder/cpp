@@ -15,8 +15,12 @@ int main(){
         if(array[i] > max){
             max = array[i];
             save = i;
+            cout << save;
+        }else if(array[i] == max && array[0] != max){
+            max = array[i];
+            save = i;
+            cout << save;
         }
     }
-    cout << save;
     return 0;
 }
