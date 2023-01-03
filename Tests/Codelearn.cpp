@@ -1,25 +1,22 @@
-#include<iostream>
+#include <bits/stdc++.h>
+#include <vector>
 
 using namespace std;
 
-struct Student {
-	string name;
-    int age;
-    void display(){
-        cout << "Name: " << name << endl;
-        cout << "Age: " << age << endl;
-    }
-};
-
-int main() {
-	int n;
-    cin >> n;
-	Student students[100];
-	for (int i = 0; i < n; i++){
-        cin >> students[i].name >> students[i].age;
-    }
-	for (int i = 0; i < n; i++) {
-		students[i].display();
+int sumOfVector(vector<int> v)
+{
+	int res = 0;
+	for (int i = 0; i < v.size(); i++)
+	{
+		res += v.at(i);
 	}
-	return 0;
+	return res;
+}
+
+int main(){
+    vector<int> v;
+    for(int i = 0; i < 5; i++){
+        v.push_back(i);
+    }
+    return 0;
 }
