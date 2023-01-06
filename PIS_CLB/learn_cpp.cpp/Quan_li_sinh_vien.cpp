@@ -62,17 +62,15 @@ void Thay_doi_thong_tin(SinhVien sv[], int n){
 
 void Sap_xep_theo_diem(SinhVien sv[], int n){
     cout << "--------------------------------------" << endl;
-    cout << "Diem trung binh theo thu tu tang dan" << endl;
+    cout << "Diem trung binh theo thu tu tang dan: " << endl;
     for(int i = 0; i < n; i++){
-        for(int j=i+1; j < n; j++){
-            if(sv[i].Diem_trung_binh() >= sv[j].Diem_trung_binh()){
-                string tmp = sv[i].name;
-                sv[i].name = sv[j].name;
-                sv[j].name = tmp;
+        for(int j = i + 1; j < n; j++){
+            if(sv[i].Diem_trung_binh() > sv[j].Diem_trung_binh()){
+                swap(sv[i], sv[j]);
             }
         }
         cout << sv[i].name << ": ";
-        cout << fixed <<sv[i].Diem_trung_binh()<< setprecision(1) << endl;
+        cout << fixed << setprecision(2) << sv[i].Diem_trung_binh() << endl;
     }
     cout << "--------------------------------------";
 }
