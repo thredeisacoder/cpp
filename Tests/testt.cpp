@@ -1,21 +1,11 @@
-#include <iostream>
+#include <bits/stdc++.h>
 
 using namespace std;
 
 int main(){
-    int n, m;
-    int a[100][100];
-    cin >> n >> m;
-    for (int i=0;i<n;i++){
-        for (int j=0;j<m;j++){
-            cin>>a[i][j];
-        }
-    }
-    for (int i=0; i<n; i++) {
-        for (int j=m-1;j>=0;j--){
-            cout <<a[i][j]<<" ";
-        }
-        cout << endl;
+    vector<int> a;
+    for(int i = 1; i <= a.size(); i++){
+        a.push_back(i);
     }
     return 0;
 }

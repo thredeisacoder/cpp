@@ -98,29 +98,29 @@ void Sap_xep_theo_diem(SinhVien sv[], int n)
     cout << "--------------------------------------";
 }
 
-int ImportFile(SinhVien sv[], char fileName[])
-{
-    FILE *fp;
-    int i = 0;
-    fp = fopen(fileName, "r");
-    while (fscanf(fp, "%5d%30s%5s%5d%10f%10f%10f%10f%10s\n", sv[i].name, sv[i].mssv, sv[i].classes, sv[i].math, sv[i].cpp, sv[i].java))
-    {
-        i++;
-    }
-    return i;
-    fclose(fp);
-}
+//int ImportFile(SinhVien sv[], char fileName[])
+//{
+//    FILE *fp;
+//    int i = 0;
+//    fp = fopen(fileName, "r");
+//    while (fscanf(fp, "%5d%30s%5s%5d%10f%10f%10f%10f%10s\n", sv[i].name, sv[i].mssv, sv[i].classes, sv[i].math, sv[i].cpp, sv[i].java))
+//    {
+//        i++;
+//    }
+//    return i;
+//    fclose(fp);
+//}
 
-void ExportFile(SinhVien sv[], int n, char fileName[])
-{
-    FILE *fp;
-    fp = fopen(fileName, "w");
-    for (int i = 0; i < n; i++)
-    {
-        fprintf(fp, "%5d%30s%5s%5d%10f%10f%10f%10f%10s\n", sv[i].name, sv[i].mssv, sv[i].classes, sv[i].math, sv[i].cpp, sv[i].java);
-    }
-    fclose(fp);
-}
+//void ExportFile(SinhVien sv[], int n, char fileName[])
+//{
+//    FILE *fp;
+//    fp = fopen(fileName, "w");
+//    for (int i = 0; i < n; i++)
+//    {
+//        fprintf(fp, "%5d%30s%5s%5d%10f%10f%10f%10f%10s\n", sv[i].name, sv[i].mssv, sv[i].classes, sv[i].math, sv[i].cpp, sv[i].java);
+//    }
+//    fclose(fp);
+//}
 
 int main()
 {
@@ -159,10 +159,10 @@ int main()
             n--;
             break;
         case 5:
-            ImportFile(sv, fileName);
+//            ImportFile(sv, fileName);
             break;
         case 6:
-            ExportFile(sv, n, fileName);
+//            ExportFile(sv, n, fileName);
             break;
         default:
             cout << "Khong co su lua chon nay vui long chon lai!" << endl;
