@@ -1,5 +1,7 @@
-#include <bits/stdc++.h>
-
+#include <iostream>
+#include <fstream>
+#include <string>
+#include <iomanip> // thư viện này để setprecision cho số thực.
 using namespace std;
 
 struct SinhVien
@@ -49,7 +51,7 @@ void in_danh_sach(SinhVien sv[], int n)
     }
 }
 
-void Xoa(SinhVien sv[], int n)
+void Xoa(SinhVien sv[], int &n) // Thêm tham chiếu (&) vào biến n để nó có thể được thay đổi bởi hàm.
 {
     string input_delete;
     cout << "Nhap MSSV can xoa: ";
@@ -58,10 +60,11 @@ void Xoa(SinhVien sv[], int n)
     {
         if (input_delete == sv[i].mssv)
         {
-            for (int j = i; j < n; j++)
+            for (int j = i; j < n - 1; j++) // sửa lỗi khi xóa 1 sinh viên giữa danh sách
             {
                 sv[j] = sv[j + 1];
             }
+            n--; // giảm kích thước mảng đi 1
         }
     }
 }
@@ -98,29 +101,33 @@ void Sap_xep_theo_diem(SinhVien sv[], int n)
     cout << "--------------------------------------";
 }
 
-//int ImportFile(SinhVien sv[], char fileName[])
-//{
-//    FILE *fp;
-//    int i = 0;
-//    fp = fopen(fileName, "r");
-//    while (fscanf(fp, "%5d%30s%5s%5d%10f%10f%10f%10f%10s\n", sv[i].name, sv[i].mssv, sv[i].classes, sv[i].math, sv[i].cpp, sv[i].java))
-//    {
-//        i++;
-//    }
-//    return i;
-//    fclose(fp);
-//}
+void ImportFile(SinhVien sv[], char fileName[], int &n)
+{
+    ifstream inFile(fileName); // mở file để đọc
+    if (!inFile) {
+        cerr << "Khong mo duoc file!";
+        exit(1); // Thoát chương trình khi không thể mở file
+    }
+    while (inFile >> sv[n].name >> sv[n].mssv >> sv[n].classes >> sv[n].math >> sv[n].cpp >> sv[n].java) {
+        n++;
+    }
+    inFile.close(); // đóng file
+}
 
-//void ExportFile(SinhVien sv[], int n, char fileName[])
-//{
-//    FILE *fp;
-//    fp = fopen(fileName, "w");
-//    for (int i = 0; i < n; i++)
-//    {
-//        fprintf(fp, "%5d%30s%5s%5d%10f%10f%10f%10f%10s\n", sv[i].name, sv[i].mssv, sv[i].classes, sv[i].math, sv[i].cpp, sv[i].java);
-//    }
-//    fclose(fp);
-//}
+void ExportFile(SinhVien sv[], int n, char fileName[])
+{
+    ofstream outFile(fileName); // mở file để ghi
+    if (!outFile) {
+        cerr << "Khong tao duoc file!";
+        exit(1); // Thoát chương trình khi không thể tạo file
+    }
+    for (int i = 0; i < n; i++) {
+        outFile << sv[i].name << " " << sv[i].mssv << " " << sv[i].classes << " " << sv[i].math << " "
+            << sv[i].cpp << " " << sv[i].java << endl;
+    }
+    outFile.close(); // đóng file
+}
+
 
 int main()
 {
@@ -156,13 +163,12 @@ int main()
             break;
         case 4:
             Xoa(sv, n);
-            n--;
             break;
         case 5:
-//            ImportFile(sv, fileName);
+            ImportFile(sv, fileName, n);
             break;
         case 6:
-//            ExportFile(sv, n, fileName);
+            ExportFile(sv, n, fileName);
             break;
         default:
             cout << "Khong co su lua chon nay vui long chon lai!" << endl;
