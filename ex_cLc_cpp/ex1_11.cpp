@@ -15,7 +15,7 @@ void count_often(int array[], int count[], int &n) {
     }
     n-= count_del;
 }
-//
+//nothings
 int main(){
     int n;
     cin >> n;
