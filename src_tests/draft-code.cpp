@@ -1,38 +1,22 @@
 #include <iostream>
-#include <vector>
 
-bool checkEqualFrequency(std::vector<int> inputArray) {
-    std::vector<int> freq(101, 0); // Khởi tạo một mảng tần suất xuất hiện ban đầu
+using namespace std;
 
-    for (int num : inputArray) {
-        freq[num]++; // Tăng tần suất xuất hiện cho phần tử num
-    }
-
-    int k = 0; // Biến lưu giá trị tần suất xuất hiện của phần tử đầu tiên
-
-    for (int i = 1; i <= 100; i++) {
-        if (freq[i] > 0) {
-            k = freq[i];
-            break;
+int main(){
+    int a[100][100];
+    int b[100];
+    int n, m;
+    cin >> n >> m;
+    for(int i = 0; i < n; i++){
+        for(int j = 0; j < m; j++){
+            cin >> a[i][j];
+            if(a[i][j] == 1){
+                b[i]++;
+            }
         }
     }
-
-    for (int i = 1; i <= 100; i++) {
-        if (freq[i] > 0 && freq[i] != k) {
-            return false;
-        }
-    }
-
-    return true;
-}
-
-int main() {
-    std::vector<int> inputArray = {1, 2, 1};
-
-    if (checkEqualFrequency(inputArray)) {
-        std::cout << "Cac phan tu co tan suat xuat hien bang nhau.\n";
-    } else {
-        std::cout << "Cac phan tu khong co tan suat xuat hien bang nhau.\n";
+    for(int i = 0; i < n; i++){
+        cout << b[i] << " ";
     }
     return 0;
 }

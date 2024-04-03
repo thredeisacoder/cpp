@@ -1,5 +1,5 @@
-#include<conio.h>
-#include<stdio.h>
+#include <conio.h>
+#include <stdio.h>
 #include <iostream>
 #include <string.h>
 #define MAX 100
